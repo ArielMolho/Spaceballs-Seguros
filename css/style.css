@@ -21,6 +21,7 @@
 .navbar-dark .navbar-nav .nav-link{
     color: white;
     padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 /* JUMBOTRON-INICIO */
@@ -49,9 +50,15 @@ p.lead{
 }
 
 /* NOSOTROS */
-.aboutUs-description{
+.aboutUs{
     background-color: darkslategrey;
 }
+
+.aboutUs-description{
+    padding-left: 1vh;
+    padding-right: 1vh;
+}
+
 .aboutUs-title{
     font-family: 'starjedi';
     text-align: center;
@@ -99,4 +106,36 @@ form{
 
 .copyright {
     margin-bottom: 0;
+}
+
+@media (max-width: 566px) {
+    /* JUMBOTRON-INICIO */
+    h1.display-4{
+        font-size: 2rem;
+    }
+    p.lead{
+        font-size: 18px;
+    }
+    .aboutUs-title{
+        font-size: 25px;
+    }
+    .aboutUs-article{
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 567px) and (max-width: 768px) {
+    /* JUMBOTRON-INICIO */
+    h1{
+        padding-bottom: 4vh;
+    }
+    h1.display-4{
+        font-size: 3rem;
+    }
+    p.lead{
+        font-size: 22px;
+    }
+    .aboutUs-article{
+        font-size: 14px;
+    }
 }
