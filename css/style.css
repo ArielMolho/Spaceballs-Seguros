@@ -1,0 +1,102 @@
+@font-face{
+    font-family: 'starjedi';
+    src: URL('starjedi.ttf') format('truetype');
+}
+
+.no-gutters {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* NAV */
+.logo{
+    width: 200px;
+    height: 60px;
+    padding-left: 1rem;
+}
+
+.navbar-dark{
+    background-color: black;
+}
+.navbar-dark .navbar-nav .nav-link{
+    color: white;
+    padding-right: 1rem;
+}
+
+/* JUMBOTRON-INICIO */
+h1{
+    font-family: 'starjedi';
+    text-align: center;
+    padding-bottom: 5vh;
+    color: #FFE81F;
+    text-shadow: 2px 2px 5px white;
+}
+
+p.lead{
+    text-align: center;
+    font-size: 30px;
+    padding: 2vh;
+    color: white;
+    font-weight: bold;
+}
+
+.jumbotron {
+    height: 80vh;
+    width: 100%;
+    background: url("https://media.giphy.com/media/3oeL6eMDAXKLvxKYub/giphy.gif") no-repeat;
+    background-size: cover;
+    margin-bottom: 0;
+}
+
+/* NOSOTROS */
+.aboutUs-description{
+    background-color: darkslategrey;
+}
+.aboutUs-title{
+    font-family: 'starjedi';
+    text-align: center;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    color: #FFE81F;
+    text-shadow: 2px 2px 5px white;
+}
+
+.aboutUs-article{
+    color: white;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+/* FORM */
+form{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* FOOTER */
+.footer-redes{
+    background-color: black;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.redes{
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-copyright {
+    background-color: darkslategrey;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+}
+
+.copyright {
+    margin-bottom: 0;
+}
