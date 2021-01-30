@@ -30,74 +30,73 @@
         </div>
     </nav>
     <div class="container">
+        <h2 class="form-title">Cotizá tu póliza</h2>
         <form>
-            <div class="form-group">
-                <label for="name">Nombre</label>
-                <input type="name" class="form-control" id="name" placeholder="Nombre">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="name@example.com">
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Tipo de nave:</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Star Destroyer</option>
-                    <option>Dreadnought Super Star Destroyer</option>
-                    <option>Mon Calamari Star Cruiser</option>
-                    <option>Corellian Corvette</option>
-                    <option>Corellian Hammerhead Corvette</option>
-                    <option>Corellian Freighter</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                    <label class="form-check-label" for="defaultCheck1">Nueva</label>
+            <fieldset>
+                <div class="form-group">
+                    <label for="name">Nombre y Apellido</label>
+                    <input type="name" class="form-control" id="name" placeholder="Ej. José Peréz" required>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="defaultCheck1">Usada</label>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Antigüedad</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Covertura que desea:</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Bronce - cobertura hasta 50% del valor</option>
-                    <option>Plata - cobertura hasta 65% del valor</option>
-                    <option>Oro - cobertura hasta 85% del valor</option>
-                    <option>Platino - cobertura 100% del valor</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Ingrese sus comentarios:</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                    <label class="form-check-label" for="invalidCheck">Términos y Condiciones</label>
-                <div class="invalid-feedback">Debe aceptar antes de enviar.</div>
+                <div class="form-group">
+                    <label for="formSelectShip">Tipo de nave:</label>
+                    <select class="form-control" id="formSelectShip">
+                        <option disabled selected>Elija una opción</option>
+                        <option value="Star Destroyer">Star Destroyer</option>
+                        <option value="Dreadnought Super Star Destroyer">Dreadnought Super Star Destroyer</option>
+                        <option value="Mon Calamari Star Cruiser">Mon Calamari Star Cruiser</option>
+                        <option value="Corellian Corvette">Corellian Corvette</option>
+                        <option value="Corellian Hammerhead Corvette">Corellian Hammerhead Corvette</option>
+                        <option value="Corellian Freighter">Corellian Freighter</option>
+                    </select>
                 </div>
-            </div>
-            <button class="btn btn-primary" type="submit">Cotizar Póliza</button>
+                <div class="form-group">
+                    <label for="formSelectAge">Antigüedad de su Nave:</label>
+                    <select class="form-control" id="formSelectAge">
+                        <option disabled selected>Seleccione cero si es nueva</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formSelectCoverage">Covertura que desea:</label>
+                    <select class="form-control" id="formSelectCoverage">
+                        <option disabled selected>Elija una opción</option>
+                        <option value="Bronce">Bronce - cobertura hasta 50% del valor</option>
+                        <option value="Plata">Plata - cobertura hasta 65% del valor</option>
+                        <option value="Oro">Oro - cobertura hasta 85% del valor</option>
+                        <option value="Platino">Platino - cobertura 100% del valor</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="textArea">Ingrese sus comentarios:</label>
+                    <textarea class="form-control" id="textArea" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck"><a href="terms.html">Términos y Condiciones</a></label>
+                    <div class="invalid-feedback">Debe aceptar antes de enviar.</div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit" id="cotizarBoton">Cotizar Póliza</button>
+                <button class="btn btn-primary" type="reset" >Limpiar Formulario</button>
+            </fieldset>
         </form>
+    </div>
+    <div id="contenedor-poliza">
     </div>
     <footer class="no-gutters">
         <div class="row no-gutters">

@@ -75,9 +75,55 @@ p.lead{
 }
 
 /* FORM */
+
+.form-title{
+    font-family: 'starjedi';
+    text-align: center;
+    padding-top: 2vh;
+    padding-bottom: 1vh;
+    color: #2d2b3c;
+    text-shadow: 2px 2px 5px white;
+}
+
 form{
-    padding-top: 2rem;
+    padding-top: 1rem;
     padding-bottom: 2rem;
+}
+
+fieldset{
+    background-color: #D3DAD6;
+    border-radius: 10px;
+    margin: 0 25% 20px 25%;
+    padding: 10px;
+    border: solid 1px black;
+}
+
+input:hover, select:hover, textarea:hover{
+    background-color: #dfdfdf;
+}
+
+button[type=submit], button[type=reset]{
+    width: 49%;
+    border: none;
+    font-family: 'starjedi';
+    color: #FFE81F;
+    background-color: darkslategrey;
+    border-radius: 3px;
+}
+
+/* TERMS */
+.video-wrapper {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
 /* FOOTER */
