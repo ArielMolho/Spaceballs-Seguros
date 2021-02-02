@@ -1,7 +1,11 @@
-var nombre = document.getElementById("name").value;
-var email = document.getElementById("email").value;
-var modelo = document.getElementById("formSelectShip").value;
-var antiguedad = parseInt(document.getElementById("formSelectAge")).value;
+var nombre = document.getElementById("name");
+nombre.value;
+var email = document.getElementById("email");
+email.value;
+var modelo = document.getElementById("formSelectShip");
+modelo.value;
+var antiguedad = parseInt(document.getElementById("formSelectAge"));
+antiguedad.value;
 var valorNave;
 
 var cotizarBoton = document.getElementById("botondecotizar");
@@ -15,7 +19,7 @@ cotizarBoton.addEventListener("click", function(){
                 console.log("El valor de esta nave nueva 150 millones de créditos y tiene una depreciación anual del 10%");
                 valorNave = (150000000-(150000000*antiguedad*0.1));
                 break;
-            case "readnought Super Star Destroyer":
+            case "Dreadnought Super Star Destroyer":
                 console.log("El valor de esta nave nueva 325.000 millones de créditos y tiene una depreciación anual del 10%");
                 valorNave = (325000000000-(325000000000*antiguedad*0.1));
                 break;
@@ -40,7 +44,8 @@ cotizarBoton.addEventListener("click", function(){
                 break;
         }
         
-        var seguroTipo = document.getElementById("formSelectCoverage").value;
+        var seguroTipo = document.getElementById("formSelectCoverage");
+        seguroTipo.value;
         var porcentajeAsegurable;
         
         switch(seguroTipo){
