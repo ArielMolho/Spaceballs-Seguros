@@ -8,6 +8,12 @@ var seguroTipo = document.getElementById("formSelectCoverage");
 var insuranceSelected;
 var valorNave;
 
+function capturarEnter(e) {
+	if (e.which == 13 || e.keyCode == 13) { // 13 es el código asociado a la tecla enter
+		alert("I find your lack of faith disturbing!");        
+	}
+}
+
 let cotizarBoton = document.getElementById('cotizarBoton');
 cotizarBoton.addEventListener('click', function(event){
     event.preventDefault();
