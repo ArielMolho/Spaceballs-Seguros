@@ -8,8 +8,9 @@ var antiguedad = parseInt(document.getElementById("formSelectAge"));
 antiguedad.value;
 var valorNave;
 
-var cotizarBoton = document.getElementById("botondecotizar");
-cotizarBoton.addEventListener("click", function(){
+let cotizarBoton = document.getElementById('cotizarBoton');
+cotizarBoton.addEventListener('submit', function(event){
+    event.preventDefault();
     if (antiguedad >= 10) {
         alert(`${nombre}, su nave ${modelo}, ya no es asegurable. Que la fuerza te acompañe!`);
     } else {
@@ -106,5 +107,3 @@ cotizarBoton.addEventListener("click", function(){
         }
     }
 })
-
-
