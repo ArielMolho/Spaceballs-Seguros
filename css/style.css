@@ -39,6 +39,7 @@ p.lead{
     padding: 2vh;
     color: white;
     font-weight: bold;
+    text-shadow: 2px 2px 5px red;
 }
 
 .jumbotron {
@@ -184,6 +185,10 @@ button[type=submit], button[type=reset]{
     .aboutUs-article{
         font-size: 14px;
     }
+    /* FORM */
+    .form-control, .form-group, button[type=submit], button[type=reset]{
+        font-size: 12px;
+    }
 }
 
 @media (min-width: 567px) and (max-width: 768px) {
@@ -198,6 +203,10 @@ button[type=submit], button[type=reset]{
         font-size: 22px;
     }
     .aboutUs-article{
+        font-size: 14px;
+    }
+    /* FORM */
+    .form-control, .form-group, button[type=submit], button[type=reset]{
         font-size: 14px;
     }
 }
