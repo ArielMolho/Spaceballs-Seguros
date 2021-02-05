@@ -1,3 +1,4 @@
+// Validación //
 var validation;
 (function() {
     'use strict';
@@ -16,6 +17,7 @@ var validation;
     }, false);
 })();
 
+// Inicialización //
 var nombre = document.getElementById("name");
 var email = document.getElementById("email");
 var modelo = document.getElementById("formSelectShip");
@@ -25,11 +27,11 @@ var ageSelected;
 var seguroTipo = document.getElementById("formSelectCoverage");
 var insuranceSelected;
 var valorNave;
-
 let cotizarBoton = document.getElementById('cotizarBoton');
+
+// Eventos y Funciones //
 function procesarFormulario (){
     cotizarBoton.addEventListener('click', function(event){
-        event.preventDefault();
         nombre = nombre.value;
         email = email.value;
         modelSelected = modelo.options[modelo.selectedIndex].value;
@@ -39,48 +41,36 @@ function procesarFormulario (){
             alert(`${nombre}, su nave ${modelSelected}, ya no es asegurable. Que la fuerza te acompañe!`);
         } else {
             //Cálculo de póliza: valor residual asegurable = valor nave - depreciación por antiguedad
-            switch(modelSelected){
-                case "Star Destroyer":
-                    console.log("El valor de esta nave nueva 150 millones de créditos y tiene una depreciación anual del 10%");
-                    valorNave = (150000000-(150000000*ageSelected*0.1));
-                    break;
-                case "Dreadnought Super Star Destroyer":
-                    console.log("El valor de esta nave nueva 325.000 millones de créditos y tiene una depreciación anual del 10%");
-                    valorNave = (325000000000-(325000000000*ageSelected*0.1));
-                    break;
-                case "Mon Calamari Star Cruiser":
-                    console.log("El valor de esta nave nueva 88 millones de créditos y tiene una depreciación anual del 10%");
-                    valorNave = (88000000-(88000000*ageSelected*0.1));
-                    break;
-                case "Corellian Corvette":
-                    console.log("El valor de esta nave nueva 3.5 millones de créditos y tiene una depreciación anual del 10%");
-                    valorNave = (3500000-(3500000*ageSelected*0.1));
-                    break;
-                case "Corellian Hammerhead Corvette":
-                    console.log("El valor de esta nave nueva 1.5 millones de créditos y tiene una depreciación anual del 10%");
-                    valorNave = (1500000-(1500000*ageSelected*0.1));
-                    break;
-                case "Corellian Freighter":
-                    console.log("El valor de esta nave nueva 100.000 créditos y tiene una depreciación anual del 10%");
-                    valorNave = (100000-(100000*ageSelected*0.1));
-                    break;
+            if (modelSelected == 'Star Destroyer') {                
+                console.log("El valor de esta nave nueva 150 millones de créditos y tiene una depreciación anual del 10%");
+                valorNave = (150000000-(150000000*ageSelected*0.1));
+            } else if (modelSelected == 'Dreadnought Super Star Destroyer') {                
+                console.log("El valor de esta nave nueva 325.000 millones de créditos y tiene una depreciación anual del 10%");
+                valorNave = (325000000000-(325000000000*ageSelected*0.1));
+            } else if (modelSelected == 'Mon Calamari Star Cruiser') {                
+                console.log("El valor de esta nave nueva 88 millones de créditos y tiene una depreciación anual del 10%");
+                valorNave = (88000000-(88000000*ageSelected*0.1));
+            } else if (modelSelected == 'Corellian Corvette') {                
+                console.log("El valor de esta nave nueva 3.5 millones de créditos y tiene una depreciación anual del 10%");
+                valorNave = (3500000-(3500000*ageSelected*0.1));
+            } else if (modelSelected == 'Corellian Hammerhead Corvette') {   
+                console.log("El valor de esta nave nueva 1.5 millones de créditos y tiene una depreciación anual del 10%");
+                valorNave = (1500000-(1500000*ageSelected*0.1));
+            } else if (modelSelected == 'Corellian Freighter') {   
+                console.log("El valor de esta nave nueva 100.000 créditos y tiene una depreciación anual del 10%");
+                valorNave = (100000-(100000*ageSelected*0.1));
             }
             
             var porcentajeAsegurable;
             
-            switch(insuranceSelected){
-                case "Bronce":
-                    porcentajeAsegurable = 0.5;
-                    break;
-                case "Plata":
-                    porcentajeAsegurable = 0.65;
-                    break;
-                case "Oro":
-                    porcentajeAsegurable = 0.85;
-                    break;
-                case "Platino":
-                    porcentajeAsegurable = 1;
-                    break;
+            if(insuranceSelected == "Bronce") {
+                porcentajeAsegurable = 0.5;
+            } else if (insuranceSelected == "Plata") {
+                porcentajeAsegurable = 0.65;
+            } else if (insuranceSelected == "Oro") {
+                porcentajeAsegurable = 0.85;
+            } else if (insuranceSelected == "Platino") {
+                porcentajeAsegurable = 1;
             }
             
             //Cálculo de póliza: valor a segurar = valor asegurable * porcentaje a asegurar según póliza seleccionada
@@ -112,20 +102,13 @@ function procesarFormulario (){
                 - Valor Asegurable: ${infoSolicitante["asegurable"]} de créditos. <br>
                 <br>
                 Habiendo seleccionado la póliza ${infoSolicitante["poliza"]}, la cobertura máxima es del ${(infoSolicitante["porcentajeAsegurable"]*100)}%. <br>
-                Su prima anual será de ${infoSolicitante["prima"]} de créditos. <br>
+                Su prima anual será de ${infoSolicitante["prima"]} de créditos por los próximos ${(10-infoSolicitante["antiguedad"])} años. <br>
                 <br>
                 Le agradecemos la confianza en Spaceballs Seguros © <br>
                 <br>
                 Que la fuerza lo acompañe y larga vida al Imperio.`;
-            
-            if (infoSolicitante["nombre"] && infoSolicitante["email"] && infoSolicitante["modelo"] && infoSolicitante["antiguedad"] && infoSolicitante["poliza"]) {
-                myContenedor.appendChild(myPoliza);
-                $(document).ready(function(){
-                    $(".btn").click(function(){
-                        $("#staticBackdrop").modal({show: true});
-                    });
-                });
-            }
+            myContenedor.appendChild(myPoliza);
+            $("#staticBackdrop").modal({show: true});
         }
     })
 }
