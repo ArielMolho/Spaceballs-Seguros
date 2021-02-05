@@ -4,15 +4,15 @@ var validation;
     window.addEventListener('load', function() {
         var forms = document.getElementsByClassName('needs-validation');
         validation = Array.prototype.filter.call(forms, function(form) {
-        form.addEventListener('submit', function(event) {
-            if (form.checkValidity() === false) {
+            form.addEventListener('submit', function(event) {
                 event.preventDefault();
-                event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-            procesarFormulario ();
-        }, false);
-    });
+                if (form.checkValidity() === false) {
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+                procesarFormulario ();
+            }, false);
+        });
     }, false);
 })();
 
@@ -102,7 +102,7 @@ function procesarFormulario (){
             };
             
             //Se que esto queda fatal en el HTML. Planeo que sea un modal o tal vez que abra una página nueva con la información.
-            var myContenedor = document.getElementById("contenedor-poliza");
+            var myContenedor = document.getElementById("modal-body");
             var myPoliza = document.createElement('p');
             myPoliza.innerHTML = 
                 `Estimado/a ${infoSolicitante["nombre"]}, <br>
@@ -120,6 +120,11 @@ function procesarFormulario (){
             
             if (infoSolicitante["nombre"] && infoSolicitante["email"] && infoSolicitante["modelo"] && infoSolicitante["antiguedad"] && infoSolicitante["poliza"]) {
                 myContenedor.appendChild(myPoliza);
+                $(document).ready(function(){
+                    $(".btn").click(function(){
+                        $("#staticBackdrop").modal({show: true});
+                    });
+                });
             }
         }
     })

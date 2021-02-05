@@ -111,6 +111,22 @@ button[type=submit], button[type=reset]{
     border-radius: 3px;
 }
 
+/* MODAL */
+.modal-title{
+    font-family: 'starjedi';
+    color: #FFE81F;
+    text-shadow: 2px 2px 5px black;
+    font-size: 30px;
+}
+
+#confirmarPoliza, #desestimarPoliza{
+    border: none;
+    font-family: 'starjedi';
+    color: #FFE81F;
+    background-color: darkslategrey;
+    border-radius: 3px;
+}
+
 /* TERMS */
 .video-wrapper {
     position: relative;
