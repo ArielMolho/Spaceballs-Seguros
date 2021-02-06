@@ -30,7 +30,8 @@ var valorNave;
 var valorAsegurable;
 var porcentajeAsegurable;
 var primaAnual;
-let cotizarBoton = document.getElementById('cotizarBoton');
+var cotizarBoton = document.getElementById('cotizarBoton');
+var infoSolicitante;
 
 // Eventos y Funciones
 function valorResidualNave (){
@@ -57,6 +58,7 @@ function valorResidualNave (){
 }
 
 function procesarPoliza (){
+    valorResidualNave ();
     if(insuranceSelected == "Bronce") {
         porcentajeAsegurable = 0.5;
     } else if (insuranceSelected == "Plata") {
@@ -84,11 +86,10 @@ function procesarFormulario (){
         if (ageSelected >= 10) {
             alert(`${nombre}, su nave ${modelSelected}, ya no es asegurable. Que la fuerza te acompañe!`);
         } else {
-            valorResidualNave ();
             procesarPoliza ();
             
             // JSON
-            var infoSolicitante = {
+            infoSolicitante = {
                 "nombre": nombre,
                 "email": email,
                 "modelo": modelSelected,
@@ -101,23 +102,27 @@ function procesarFormulario (){
             };
             
             // Modal Output
-            var myContenedor = document.getElementById("modal-body");
-            var myPoliza = document.createElement('p');
-            myPoliza.innerHTML = 
-                `Estimado/a ${infoSolicitante["nombre"]}, <br>
-                Gracias por confiar en Spaceballs Seguros ©. A continuación le detallamos la información de su póliza: <br>
-                - Nave: ${infoSolicitante["modelo"]} <br>
-                - Antigüedad: ${infoSolicitante["antiguedad"]} <br>
-                - Valor Asegurable: ${infoSolicitante["asegurable"]} de créditos. <br>
-                <br>
-                Habiendo seleccionado la póliza ${infoSolicitante["poliza"]}, la cobertura máxima es del ${(infoSolicitante["porcentajeAsegurable"]*100)}%. <br>
-                Su prima anual será de ${infoSolicitante["prima"]} de créditos por los próximos ${(10-infoSolicitante["antiguedad"])} años. <br>
-                <br>
-                Le agradecemos la confianza en Spaceballs Seguros © <br>
-                <br>
-                Que la fuerza lo acompañe y larga vida al Imperio.`;
-            myContenedor.appendChild(myPoliza);
-            $("#staticBackdrop").modal({show: true});
+            modal();
         }
     })
+}
+
+function modal(){
+    var myContenedor = document.getElementById("modal-body");
+    var myPoliza = document.createElement('p');
+    myPoliza.innerHTML = 
+        `Estimado/a ${infoSolicitante["nombre"]}, <br>
+        Gracias por confiar en Spaceballs Seguros ©. A continuación le detallamos la información de su póliza: <br>
+        - Nave: ${infoSolicitante["modelo"]} <br>
+        - Antigüedad: ${infoSolicitante["antiguedad"]} <br>
+        - Valor Asegurable: ${infoSolicitante["asegurable"]} de créditos. <br>
+        <br>
+        Habiendo seleccionado la póliza ${infoSolicitante["poliza"]}, la cobertura máxima es del ${(infoSolicitante["porcentajeAsegurable"]*100)}%. <br>
+        Su prima anual será de ${infoSolicitante["prima"]} de créditos por el/los próximo(s) ${(10-infoSolicitante["antiguedad"])} año(s). <br>
+        <br>
+        Le agradecemos la confianza en Spaceballs Seguros © <br>
+        <br>
+        Que la fuerza lo acompañe y larga vida al Imperio.`;
+    myContenedor.appendChild(myPoliza);
+    $("#staticBackdrop").modal({show: true});
 }

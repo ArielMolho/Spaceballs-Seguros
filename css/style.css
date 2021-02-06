@@ -189,6 +189,12 @@ button[type=submit], button[type=reset]{
     .form-control, .form-group, button[type=submit], button[type=reset]{
         font-size: 12px;
     }
+    fieldset{
+        margin: 0 10% 10px 10%;
+    }
+    .modal-title{
+        font-size: 20px;
+    }
 }
 
 @media (min-width: 567px) and (max-width: 768px) {
@@ -208,5 +214,11 @@ button[type=submit], button[type=reset]{
     /* FORM */
     .form-control, .form-group, button[type=submit], button[type=reset]{
         font-size: 14px;
+    }
+    fieldset{
+        margin: 0 10% 10px 10%;
+    }
+    .modal-title{
+        font-size: 24px;
     }
 }
