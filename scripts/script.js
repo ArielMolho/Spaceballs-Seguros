@@ -11,9 +11,13 @@ var validation;
                     event.stopPropagation();
                 }
                 form.classList.add('was-validated');
+                $("#cotizarBoton").text("Cotizar Póliza");
+                $("#cotizarBoton").css("color", "#FF0000");
                 procesarFormulario ();
             }, false);
         });
+        $("p.confirm").hide();
+        $("p.cancel").hide();
     }, false);
 })();
 
@@ -70,7 +74,6 @@ function procesarPoliza (){
     
     //Cálculo de póliza: prima = valor a segurar * porcentaje que se considera de reaseguro anual
     primaAnual = ((valorAsegurable/10)*(porcentajeAsegurable/10));
-    storage();
 };
 
 function procesarFormulario (){
@@ -97,7 +100,8 @@ function procesarFormulario (){
                 "porcentajeAsegurable": porcentajeAsegurable,
                 "prima": Math.round(primaAnual)
             };
-            
+            storage();
+
             // Modal Output
             modal();
         }
@@ -120,9 +124,37 @@ function modal(){
         Que la fuerza lo acompañe y larga vida al Imperio.</p>`
     );
     $("#staticBackdrop").modal({show: true});
+    confirmaPoliza ();
 };
 
 function storage (){
     sessionStorage.Name = infoSolicitante["nombre"];
     sessionStorage.Email = infoSolicitante["email"];
+    sessionStorage.Modelo = infoSolicitante["modelo"];
+    sessionStorage.Antiguedad = infoSolicitante["antiguedad"];
+    sessionStorage.Poliza = infoSolicitante["poliza"];
+};
+
+function limpiarFormulario (){
+    $("#limpiarForm").click( function(){
+        if ($("#cotizarBoton").text() == "Cotizar Póliza") {
+            $("#cotizarBoton").text("validar Datos");
+            $("#cotizarBoton").css("color", "#FFE81F");
+        }
+    })
+};
+limpiarFormulario ();
+
+/*
+<button type="button" id="desestimarPoliza" class="btn btn-primary" data-dismiss="modal">Desestimar</button>
+<button type="button" id="confirmarPoliza" class="btn btn-primary" data-dismiss="modal">Confirmar Póliza</button>
+<p class="cancel">Por favor contacte a un asesor si requiere asistencia adicional</p>
+<p class="confirm">Recibirá su poliza en breve</p>
+*/
+function confirmaPoliza (){
+    $("#confirmarPoliza").click( function(){
+        $("p.confirm").fadeIn(); 
+        // $('div .modal').delay("slow").fadeOut();
+        // $("#modal-body").text("Recibirá su poliza en breve");
+    })
 };
