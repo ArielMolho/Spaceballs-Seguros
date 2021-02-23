@@ -16,8 +16,6 @@ var validation;
                 procesarFormulario ();
             }, false);
         });
-        $("p.confirm").hide();
-        $("p.cancel").hide();
     }, false);
 })();
 
@@ -84,7 +82,9 @@ function procesarFormulario (){
         antiguedad = $("#formSelectAge").val();
         seguroTipo = $("#formSelectCoverage").val();
         if (antiguedad >= 10) {
-            alert(`${nombre}, su nave ${modelo}, ya no es asegurable. Que la fuerza te acompañe!`);
+            $(".ageOut").fadeIn(2000).append(
+                `<p style="color: red">${nombre}, su nave ${modelo}, ya no es asegurable. Que la fuerza te acompañe!</p>`
+            );
         } else {
             procesarPoliza ();
             
@@ -124,7 +124,7 @@ function modal(){
         Que la fuerza lo acompañe y larga vida al Imperio.</p>`
     );
     $("#staticBackdrop").modal({show: true});
-    confirmaPoliza ();
+    //confirmaPoliza ();
 };
 
 function storage (){
@@ -144,17 +144,3 @@ function limpiarFormulario (){
     })
 };
 limpiarFormulario ();
-
-/*
-<button type="button" id="desestimarPoliza" class="btn btn-primary" data-dismiss="modal">Desestimar</button>
-<button type="button" id="confirmarPoliza" class="btn btn-primary" data-dismiss="modal">Confirmar Póliza</button>
-<p class="cancel">Por favor contacte a un asesor si requiere asistencia adicional</p>
-<p class="confirm">Recibirá su poliza en breve</p>
-*/
-function confirmaPoliza (){
-    $("#confirmarPoliza").click( function(){
-        $("p.confirm").fadeIn(); 
-        // $('div .modal').delay("slow").fadeOut();
-        // $("#modal-body").text("Recibirá su poliza en breve");
-    })
-};
