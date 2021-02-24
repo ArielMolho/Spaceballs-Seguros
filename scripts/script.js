@@ -100,7 +100,7 @@ function procesarFormulario (){
                 "porcentajeAsegurable": porcentajeAsegurable,
                 "prima": Math.round(primaAnual)
             };
-            //storage(); //en DesUso y próximo a ser eliminado
+            
             // Modal Output
             modal();
         }
@@ -124,15 +124,6 @@ function modal(){
     );
     $("#staticBackdrop").modal({show: true});
 };
-
-//en DesUso y próximo a ser eliminado
-// function storage (){
-//     sessionStorage.Name = infoSolicitante["nombre"];
-//     sessionStorage.Email = infoSolicitante["email"];
-//     sessionStorage.Modelo = infoSolicitante["modelo"];
-//     sessionStorage.Antiguedad = infoSolicitante["antiguedad"];
-//     sessionStorage.Poliza = infoSolicitante["poliza"];
-// };
 
 function limpiarFormulario (){
     $("#limpiarForm").click( function(){
