@@ -103,6 +103,7 @@ p.lead{
     padding: 15px 10px;
     margin: 5px;
     border-style: none;
+    background-color: white;
 }
 
 #lightSide, #darkSide {
