@@ -2,15 +2,15 @@
 //Use of Toggle animation
 
 const currentTheme = localStorage.getItem("theme");
-if (currentTheme == "dark") {
+if (currentTheme == "darkSide") {
     document.body.classList.add("dark-theme");
 }
 
 $(".btn-toggle").click( function() {
     document.body.classList.toggle("dark-theme");
-    let theme = "Light Side";
+    let theme = "lightSide";
     if (document.body.classList.contains("dark-theme")) {
-        theme = "Dark Side";
+        theme = "darkSide";
     }
     localStorage.setItem("theme", theme);
 });
