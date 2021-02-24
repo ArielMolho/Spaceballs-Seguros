@@ -3,9 +3,19 @@
     src: URL('starjedi.ttf') format('truetype');
 }
 
+body {
+    --text-color: #2d2b3c;
+    --bkg-color: #fff;
+}
+body.dark-theme {
+    --text-color: #FFE81F;
+    --bkg-color: #000000;
+}
+
 .no-gutters {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    background-color: var(--bkg-color);
 }
 
 /* NAV */
@@ -77,12 +87,35 @@ p.lead{
 
 /* FORM */
 
+.darkMode {
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.btn-toggle{
+    display: block;
+    text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 15px 10px;
+    margin: 5px;
+    border-style: none;
+}
+
+#lightSide, #darkSide {
+    height: 30px;
+    width: 30px;
+}
+
 .form-title{
     font-family: 'starjedi';
     text-align: center;
     padding-top: 2vh;
     padding-bottom: 1vh;
-    color: #2d2b3c;
+    color: var(--text-color);
     text-shadow: 2px 2px 5px white;
 }
 
