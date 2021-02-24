@@ -30,10 +30,12 @@ var valorAsegurable;
 var porcentajeAsegurable;
 var primaAnual;
 var infoSolicitante;
+var nuevaPoliza;
 
 // Eventos y Funciones
 function valorResidualNave (){
-    // Cálculo de póliza: valor residual asegurable = valor nave - depreciación por antiguedad
+    // Cálculo de póliza 1: valor residual asegurable = valor nave - depreciación por antiguedad
+    // El console.log de esta sección se usa para control interno. Será eliminado para la presentación final.
     if (modelo == 'Star Destroyer') {                
         console.log("El valor de esta nave nueva 150 millones de créditos y tiene una depreciación anual del 10%");
         valorNave = (150000000-(150000000*antiguedad*0.1));
@@ -67,11 +69,27 @@ function procesarPoliza (){
         porcentajeAsegurable = 1;
     }
     
-    //Cálculo de póliza: valor a segurar = valor asegurable * porcentaje a asegurar según póliza seleccionada
+    //Cálculo de póliza 2: valor a segurar = valor asegurable * porcentaje a asegurar según póliza seleccionada
     valorAsegurable = (valorNave*porcentajeAsegurable);
     
-    //Cálculo de póliza: prima = valor a segurar * porcentaje que se considera de reaseguro anual
+    //Cálculo de póliza 3: prima = valor a segurar * porcentaje que se considera de reaseguro anual
     primaAnual = ((valorAsegurable/10)*(porcentajeAsegurable/10));
+
+    // JSON
+    infoSolicitante = {
+        "nombre": nombre,
+        "email": email,
+        "modelo": modelo,
+        "antiguedad": antiguedad,
+        "valorNave": valorNave,
+        "asegurable": valorAsegurable,
+        "poliza": seguroTipo,
+        "porcentajeAsegurable": porcentajeAsegurable,
+        "prima": Math.round(primaAnual)
+    };
+    
+    // Modal Output
+    modal();
 };
 
 function procesarFormulario (){
@@ -81,29 +99,8 @@ function procesarFormulario (){
         modelo = $("#formSelectShip").val();
         antiguedad = $("#formSelectAge").val();
         seguroTipo = $("#formSelectCoverage").val();
-        if (antiguedad >= 10) {
-            $(".ageOut").fadeIn(2000).append(
-                `<p style="color: red">${nombre}, su nave ${modelo}, ya no es asegurable. Que la fuerza te acompañe!</p>`
-            );
-        } else {
-            procesarPoliza ();
-            
-            // JSON
-            infoSolicitante = {
-                "nombre": nombre,
-                "email": email,
-                "modelo": modelo,
-                "antiguedad": antiguedad,
-                "valorNave": valorNave,
-                "asegurable": valorAsegurable,
-                "poliza": seguroTipo,
-                "porcentajeAsegurable": porcentajeAsegurable,
-                "prima": Math.round(primaAnual)
-            };
-            
-            // Modal Output
-            modal();
-        }
+        nuevaPoliza = new InsuredShip(modelo, antiguedad, seguroTipo);
+        nuevaPoliza.getEvaluation();
     })
 };
 
