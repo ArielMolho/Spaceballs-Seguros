@@ -1,7 +1,12 @@
+var shipDirectory;
 $("#getAjax").click(function () {
-    $.get("https://swapi.dev/api/starships/schema/",
+    $.get("https://swapi.dev/api/starships/",
         function (data, status) {
-            console.log("mi data es: " + data + " mi status code es: " + status);
+            console.log("Mi status code es: " + status);
+            //console.log(JSON.stringify(data));
+            shipDirectory = JSON.stringify(data);
+            //console.log(shipDirectory["results"[3]]);
+            console.log(shipDirectory);
         }
     )
 });
