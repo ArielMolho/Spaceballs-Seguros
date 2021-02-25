@@ -39,6 +39,7 @@ function valorResidualNave (){
     if (modelo == 'Star Destroyer') {                
         console.log("El valor de esta nave nueva 150 millones de créditos y tiene una depreciación anual del 10%");
         valorNave = (150000000-(150000000*antiguedad*0.1));
+        console.log(shipDirectory.results[1]);
     } else if (modelo == 'Dreadnought Super Star Destroyer') {                
         console.log("El valor de esta nave nueva 325.000 millones de créditos y tiene una depreciación anual del 10%");
         valorNave = (325000000000-(325000000000*antiguedad*0.1));

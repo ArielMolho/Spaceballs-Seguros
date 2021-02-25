@@ -1,12 +1,12 @@
 var shipDirectory;
-$("#getAjax").click(function () {
+$("#cotizarBoton").click(function () {
     $.get("https://swapi.dev/api/starships/",
         function (data, status) {
             console.log("Mi status code es: " + status);
-            //console.log(JSON.stringify(data));
-            shipDirectory = JSON.stringify(data);
-            //console.log(shipDirectory["results"[3]]);
-            console.log(shipDirectory);
+            console.log(data); // para control
+            shipDirectory = data;
+            console.log(shipDirectory.results); // para control
+            // console.log(shipDirectory.results[1]); // para control
         }
     )
 });
