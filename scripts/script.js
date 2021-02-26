@@ -35,26 +35,33 @@ var nuevaPoliza;
 // Eventos y Funciones
 function valorResidualNave (){
     // Cálculo de póliza 1: valor residual asegurable = valor nave - depreciación por antiguedad
-    // El console.log de esta sección se usa para control interno. Será eliminado para la presentación final.
+    // Los console.log de esta sección se usan para control interno.
     if (modelo == 'Star Destroyer') {                
-        console.log("El valor de esta nave nueva 150 millones de créditos y tiene una depreciación anual del 10%");
-        valorNave = (150000000-(150000000*antiguedad*0.1));
-        console.log(shipDirectory.results[1]);
-    } else if (modelo == 'Dreadnought Super Star Destroyer') {                
-        console.log("El valor de esta nave nueva 325.000 millones de créditos y tiene una depreciación anual del 10%");
-        valorNave = (325000000000-(325000000000*antiguedad*0.1));
+        console.log(`El valor de esta nave nueva ${shipDirectory.results[1].cost_in_credits} de créditos y tiene una depreciación anual del 10%`);
+        valorNave = parseInt(shipDirectory.results[1].cost_in_credits);
+        valorNave = (valorNave-(valorNave*antiguedad*0.1));
+        console.log(valorNave); // para control
+    } else if (modelo == 'Executor Class Star Dreadnought') {                
+        console.log(`El valor de esta nave nueva ${shipDirectory.results[8].cost_in_credits} de créditos y tiene una depreciación anual del 10%`);
+        valorNave = parseInt(shipDirectory.results[8].cost_in_credits);
+        valorNave = (valorNave-(valorNave*antiguedad*0.1));
+        console.log(valorNave); // para control
     } else if (modelo == 'Mon Calamari Star Cruiser') {                
         console.log("El valor de esta nave nueva 88 millones de créditos y tiene una depreciación anual del 10%");
         valorNave = (88000000-(88000000*antiguedad*0.1));
-    } else if (modelo == 'Corellian Corvette') {                
-        console.log("El valor de esta nave nueva 3.5 millones de créditos y tiene una depreciación anual del 10%");
-        valorNave = (3500000-(3500000*antiguedad*0.1));
+    } else if (modelo == 'CR90 Corellian Corvette') {                
+        console.log(`El valor de esta nave nueva ${shipDirectory.results[0].cost_in_credits} de créditos y tiene una depreciación anual del 10%`);
+        valorNave = parseInt(shipDirectory.results[0].cost_in_credits);
+        valorNave = (valorNave-(valorNave*antiguedad*0.1));
+        console.log(valorNave); // para control
     } else if (modelo == 'Corellian Hammerhead Corvette') {   
         console.log("El valor de esta nave nueva 1.5 millones de créditos y tiene una depreciación anual del 10%");
         valorNave = (1500000-(1500000*antiguedad*0.1));
     } else if (modelo == 'Corellian Freighter') {   
-        console.log("El valor de esta nave nueva 100.000 créditos y tiene una depreciación anual del 10%");
-        valorNave = (100000-(100000*antiguedad*0.1));
+        console.log(`El valor de esta nave nueva ${shipDirectory.results[4].cost_in_credits} de créditos y tiene una depreciación anual del 10%`);
+        valorNave = parseInt(shipDirectory.results[4].cost_in_credits);
+        valorNave = (valorNave-(valorNave*antiguedad*0.1));
+        console.log(valorNave); // para control
     }
 };
 
@@ -82,8 +89,8 @@ function procesarPoliza (){
         "email": email,
         "modelo": modelo,
         "antiguedad": antiguedad,
-        "valorNave": valorNave,
-        "asegurable": valorAsegurable,
+        "valorNave": Math.round(valorNave),
+        "asegurable": Math.round(valorAsegurable),
         "poliza": seguroTipo,
         "porcentajeAsegurable": porcentajeAsegurable,
         "prima": Math.round(primaAnual)
