@@ -1,36 +1,5 @@
 //Source: https://swapi.dev/
 //https://swapi.dev/api/starships/
-//var shipDirectory = [];
-// $(document).ready(function () {
-//     for(let i=1;i<5;i++) {
-//         $.get("https://swapi.dev/api/starships/?page="+i,
-//             function (data, status) {
-//                 console.log("Mi status code es: " + status);
-//                 data.results.forEach(ship=>{
-//                     shipDirectory.push(ship);
-//                 })                
-//                 //console.log(shipDirectory);                
-//             }
-//         )
-//     }
-//     console.log(shipDirectory);  
-// });
-
-// $(document).ready(function () {
-//     for(let i=1;i<5;i++) {
-//         $.ajax({
-//             url: "https://swapi.dev/api/starships/?page="+i,
-//             dataType: "json",
-//             success: function (data) {
-//                 data.results.forEach(ship=>{
-//                     shipDirectory.push(ship);
-//                 })
-//             }
-//         });
-//     }
-//     console.log(shipDirectory);
-// });
-
 const starships = [];
 
 function renderShips(ships) {
