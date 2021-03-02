@@ -35,13 +35,12 @@ var nuevaPoliza;
 // Eventos y Funciones
 function valorResidualNave (){
     // Cálculo de póliza 1: valor residual asegurable = valor nave - depreciación por antiguedad
-    // Los console.log de esta sección se usan para control interno.
     for (var i=0; i<starships.length; i++){
         if (modelo == starships[i].model) {
-            console.log(`El valor de esta nave nueva ${starships[i].cost_in_credits} de créditos y tiene una depreciación anual del 10%`);
+            //console.log(`El valor de esta nave nueva ${starships[i].cost_in_credits} de créditos y tiene una depreciación anual del 10%`); // para control
             valorNave = parseInt(starships[i].cost_in_credits);
             valorNave = (valorNave-(valorNave*antiguedad*0.1));
-            console.log(valorNave); // para control
+            //console.log(valorNave); // para control
         }
     };
 };
@@ -120,3 +119,13 @@ function limpiarFormulario (){
     })
 };
 limpiarFormulario ();
+
+$(document).ready(function () {
+    $("#confirm").hide();
+    $("#close").hide();
+});
+
+$("#confirmarPoliza").click(function(){ 
+    $("#confirm").fadeIn(2000);
+    $("#close").fadeIn(2000); 
+});
