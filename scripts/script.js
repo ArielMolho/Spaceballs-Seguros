@@ -116,6 +116,7 @@ function limpiarFormulario (){
             $("#cotizarBoton").text("validar Datos");
             $("#cotizarBoton").css("color", "#FFE81F");
         }
+        location.reload();
     })
 };
 limpiarFormulario ();
