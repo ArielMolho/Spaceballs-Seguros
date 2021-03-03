@@ -120,12 +120,29 @@ function limpiarFormulario (){
 };
 limpiarFormulario ();
 
+//Elementos ocultos o inactivos al iniciar el cotizador
 $(document).ready(function () {
     $("#confirm").hide();
     $("#close").hide();
+    validateStorage();
 });
 
+function validateStorage(){
+    var valmodelo = localStorage.Modelo;
+    if (valmodelo != null && valmodelo != '') {
+        $('#ultimaCotBoton').prop('disabled', false);
+    } else {
+        $('#ultimaCotBoton').prop('disabled', true);
+    };
+}
+
+//Animación con fadeIn para confirmar póliza
 $("#confirmarPoliza").click(function(){ 
     $("#confirm").fadeIn(2000);
     $("#close").fadeIn(2000); 
+});
+
+$("#confirmarPolizaLast").click(function(){ 
+    $("#confirmLast").fadeIn(2000);
+    $("#closeLast").fadeIn(2000); 
 });

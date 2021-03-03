@@ -96,17 +96,12 @@
         </div>
     </div>
     <div id="contenedor-poliza">
-        <!-- Modal -->
+        <!-- Modal Nueva Cotización-->
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title mx-auto" id="staticBackdropLabel">Propuesta Póliza</h5>
-                        <!--
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        -->
                     </div>
                     <div class="modal-body" id="modal-body">
                     </div>
@@ -115,6 +110,31 @@
                         <button type="button" id="confirmarPoliza" class="btn btn-primary">Confirmar Póliza</button>
                         <p id="confirm">Su póliza está siendo procesada. En breve recibirá un correo con la confirmación de la misma</p>
                         <button type="button" id="close" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contenedor-poliza">
+        <!-- Modal Ultima Cotización -->
+        <div class="row">
+            <div class="mx-auto">
+                <button type="button" id="ultimaCotBoton" class="btn btn-primary" data-toggle="modal" data-target="#modal">Cotización Previa</button>
+            </div>
+        </div>
+        <div class="modal fade ultimaCoti" id="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title mx-auto" id="modal">Última Propuesta de Póliza</h5>
+                    </div>
+                    <div class="modal-body" id="modal-ultima">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="desestimarPolizaLast" class="btn btn-primary" data-dismiss="modal">Desestimar</button>
+                        <button type="button" id="confirmarPolizaLast" class="btn btn-primary">Confirmar Póliza</button>
+                        <p id="confirmLast">Su póliza está siendo procesada. En breve recibirá un correo con la confirmación de la misma</p>
+                        <button type="button" id="closeLast" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>
@@ -145,5 +165,6 @@
     <script async defer src="../scripts/spaceObj.js"></script>
     <script async defer src="../scripts/darkMode.js"></script>
     <script async defer src="../scripts/ajax.js"></script>
+    <script async defer src="../scripts/lastQuote.js"></script>
 </body>
 </html>

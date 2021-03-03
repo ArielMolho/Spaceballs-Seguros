@@ -7,7 +7,7 @@ function renderShips(ships) {
         sortByPrice("cost_in_credits")
     ); // Ordeno antes de renderizar en pantalla.
     ships = filterUnknownShips(ships); // Me deshago de los ships que tienen price unknown.
-    console.log(ships); // para control
+    //console.log(ships); // para control
     for (const ship of ships) { 
         starships.push(ship);
     }

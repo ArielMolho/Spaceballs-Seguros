@@ -26,6 +26,6 @@ function InsuredShip(argModel, argAge, argInsType) {
 
 function ageOut(){
     $(".ageOut").append(
-        `<p style="color: red">${nombre}, su nave ${modelo}, ya no es asegurable. Que la fuerza te acompañe!</p>`
+        `<p class="ageOut">${nombre}, su nave ${modelo}, ya no es asegurable. Que la fuerza te acompañe!</p>`
     );
 }
