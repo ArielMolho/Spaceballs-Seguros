@@ -78,6 +78,7 @@ function procesarPoliza (){
     
     // Modal Output
     modal();
+    $('#cotizarBoton').prop('disabled', true);
 };
 
 function procesarFormulario (){
