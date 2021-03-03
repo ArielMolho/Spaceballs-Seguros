@@ -7,6 +7,8 @@ Features:
 <br>
 - On the "Cotizador" tab user completes the requested form and it is validated to make sure all mandatory fields are completed prior to offering an insurance quote.
 <br>
+- Ships are brought from https://swapi.dev/.
+<br>
 - If a ship is 10 years old or older user will receive a message informing we can´t insure it.
 <br>
 - When al fields are validated the "Validar Datos" button will change to "Cotizar Poliza"
