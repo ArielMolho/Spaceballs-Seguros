@@ -177,13 +177,13 @@ button[type=submit], button[type=reset]{
 }
 
 /* TERMS */
-.video-wrapper {
+.photo-wrapper {
     position: relative;
     height: 0;
     padding-bottom: 56.25%;
 }
 
-.video-wrapper iframe {
+.photo-wrapper img {
     position: absolute;
     width: 100%;
     height: 100%;

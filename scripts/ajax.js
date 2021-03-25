@@ -37,7 +37,7 @@ function getPage(nextUrl, ships) {
 
 function getAllPages() {
     const shipDirectory = [];
-    const initialUrl = '//swapi.dev/api/starships/?page=1';
+    const initialUrl = 'https://swapi.dev/api/starships/?page=1';
     getPage(initialUrl, shipDirectory);
 }
 
